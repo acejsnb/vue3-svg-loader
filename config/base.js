@@ -1,7 +1,6 @@
 const { resolve } = require('path');
 const webpack = require('webpack');
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
-const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin');
 const chalk = require('chalk');
 const { VueLoaderPlugin } = require('vue-loader'); // vue加载器
 
@@ -123,14 +122,6 @@ const config = {
         new webpack.BannerPlugin(`@vue3-svg-loader ${TimeFn()}`),
         new VueLoaderPlugin(), // vue加载器
 
-        new FriendlyErrorsPlugin({
-            compilationSuccessInfo: {
-                messages: [
-                    chalk.blue.bold('Your application is running here: ') + chalk.green.bold('components 打包成功！')
-                ],
-                notes: ['Some additionnal notes to be displayed unpon successful compilation']
-            }
-        }),
         new ProgressBarPlugin(
             {
                 format: chalk.blue(`[  build :bar ${chalk.green.bold(':percent')} (:elapsed seconds) ]`),

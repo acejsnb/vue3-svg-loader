@@ -1,6 +1,6 @@
 {
-  "name": "vue3-svg-loader",
-  "version": "0.0.1",
+  "name": "vuecomponent-svg-loader",
+  "version": "0.0.3",
   "description": "webpack5 vue3 loader",
   "private": false,
   "author": "xiongshuang <xsmails@163.com>",
@@ -9,7 +9,7 @@
     "webpack",
     "loader"
   ],
-  "license": "MIT",
+  "license": "ISC",
   "main": "dist/index.js",
   "files": [
     "dist/*"
@@ -19,9 +19,6 @@
     "prod": "cross-env NODE_ENV=production webpack --mode production --config ./config/prod.js",
     "loader": "cross-env NODE_ENV=production webpack --mode production --config ./config/loader.js",
     "lint": "eslint src --fix"
-  },
-  "dependencies": {
-    "vue": "^3.0.4"
   },
   "devDependencies": {
     "@babel/cli": "^7.12.1",
@@ -35,11 +32,13 @@
     "@vue/compiler-sfc": "^3.0.2",
     "autoprefixer": "^8.6.5",
     "babel-loader": "^8.2.2",
+    "buffer": "^6.0.3",
     "chalk": "^4.1.0",
     "clean-webpack-plugin": "^3.0.0",
     "copy-webpack-plugin": "^6.3.0",
     "core-js": "^3.6.5",
     "cross-env": "^7.0.2",
+    "crypto-browserify": "^3.12.0",
     "css-loader": "^5.0.1",
     "css-minimizer-webpack-plugin": "^1.2.0",
     "cssnano": "^4.1.10",
@@ -48,39 +47,27 @@
     "eslint-import-resolver-webpack": "^0.13.0",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-vue": "^7.0.0-beta.4",
-    "friendly-errors-webpack-plugin": "^1.7.0",
     "html-webpack-plugin": "^4.5.0",
     "mini-css-extract-plugin": "^1.2.1",
     "optimize-css-assets-webpack-plugin": "^5.0.4",
+    "os-browserify": "^0.3.0",
+    "path-browserify": "^1.0.1",
     "postcss-loader": "^4.2.0",
     "postcss-preset-env": "^6.7.0",
     "precss": "^4.0.0",
     "progress-bar-webpack-plugin": "^2.1.0",
+    "stream-browserify": "^3.0.0",
     "style-loader": "^2.0.0",
     "style-resources-loader": "^1.3.3",
     "stylus": "^0.54.8",
     "stylus-loader": "^4.2.0",
     "terser-webpack-plugin": "^5.0.3",
+    "util": "^0.12.4",
     "vue-loader": "^16.1.2",
+    "vue": "^3.0.4",
     "webpack": "^5.10.0",
     "webpack-cli": "^4.2.0",
     "webpack-dev-server": "^3.11.0",
     "webpack-merge": "^5.4.0"
-  },
-  "browserslist": {
-    "production": [
-      "> 0.25%",
-      "not dead",
-      "ie >= 9"
-    ],
-    "development": [
-      "> 0.25%",
-      "not dead",
-      "ie >= 9"
-    ]
-  },
-  "sideEffects": [
-    "*.css",
-    "*.styl"
-  ]
+  }
 }

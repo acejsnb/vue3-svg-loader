@@ -2,7 +2,6 @@ const { resolve, join } = require('path');
 const webpack = require('webpack');
 const { merge } = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin'); // 自动生成index.html
-const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin');
 const chalk = require('chalk');
 
 const baseConfig = require('./base');
@@ -24,14 +23,6 @@ const config = {
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
-        new FriendlyErrorsPlugin({
-            compilationSuccessInfo: {
-                messages: [
-                    chalk.blueBright.bold('Your application is running here: ') + chalk.greenBright.bold(`http://${getIp()}:${port}/`),
-                    chalk.blueBright.bold('Your application is running here: ') + chalk.greenBright.bold(`http://localhost:${port}/`)
-                ]
-            }
-        }),
         new HtmlWebpackPlugin({
             template: join(__dirname, '../src/indexDev.html'), // 引入模版
             filename: 'index.html',
