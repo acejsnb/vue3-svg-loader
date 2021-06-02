@@ -1,10 +1,10 @@
-const { resolve } = require('path');
+const {resolve} = require('path');
 const webpack = require('webpack');
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 const chalk = require('chalk');
-const { VueLoaderPlugin } = require('vue-loader'); // vue加载器
+const {VueLoaderPlugin} = require('vue-loader'); // vue加载器
 
-const { NODE_ENV } = process.env;
+const {NODE_ENV} = process.env;
 
 // 获取时间
 const TimeFn = require('../get_time');
@@ -41,6 +41,15 @@ const stylusConfig = [
  * isProd为true表示生产
  */
 const isProd = NODE_ENV === 'production';
+
+const {
+    name, version, author, license
+} = require('../package.json');
+
+const banner = `@${name} v${version}
+(c) 2019-2021 ${author}
+Released under the ${license} License.
+${TimeFn()}`;
 
 const config = {
     module: {
@@ -119,7 +128,7 @@ const config = {
         }
     },
     plugins: [
-        new webpack.BannerPlugin(`@vue3-svg-loader ${TimeFn()}`),
+        new webpack.BannerPlugin(banner),
         new VueLoaderPlugin(), // vue加载器
 
         new ProgressBarPlugin(

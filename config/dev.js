@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const { merge } = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin'); // 自动生成index.html
 const chalk = require('chalk');
+const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 
 const baseConfig = require('./base');
 
@@ -32,7 +33,23 @@ const config = {
             },
             hash: true, // 去掉上次浏览器的缓存（使浏览器每次获取到的是最新的html）
             inlineSource: '.(js|css)'
-        })
+        }),
+        new ProgressBarPlugin(
+            {
+                format: chalk.blue(`[  build :bar ${chalk.green.bold(':percent')} (:elapsed seconds) ]`),
+                clear: true,
+                summary: false,
+                customSummary: () => {
+                    console.log(
+                        chalk.blueBright.bold('Your application is running here: '),
+                        '\n',
+                        chalk.greenBright.bold(`http://${getIp()}:${port}/`),
+                        '\n',
+                        chalk.greenBright.bold(`http://localhost:${port}/`)
+                    );
+                }
+            }
+        )
     ],
     cache: true,
     devtool: 'inline-source-map',

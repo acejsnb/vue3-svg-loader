@@ -14,7 +14,7 @@ const App = defineComponent({
             <div className="app">
                 app
                 {/* <BiSvg/> */}
-                <SearchSvg class="svg-class"/>
+                <SearchSvg/>
             </div>
         );
     }

@@ -13,7 +13,7 @@ const config = {
         path: resolve(__dirname, '../dist'),
         filename: 'index.js',
         publicPath: '/',
-        library: 'vue3-svg-loader',
+        library: 'vuecomponent-svg-loader',
         libraryExport: 'default',
         libraryTarget: 'umd',
         umdNamedDefine: true,
