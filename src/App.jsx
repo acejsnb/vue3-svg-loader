@@ -5,6 +5,7 @@ import {
 
 // import BiSvg from 'assets/icon/BI.svg';
 import SearchSvg from 'assets/icon/search.svg';
+import Test from './pages/Test';
 
 const App = defineComponent({
     name: 'App',
@@ -14,7 +15,9 @@ const App = defineComponent({
             <div className="app">
                 app
                 {/* <BiSvg/> */}
-                <SearchSvg/>
+                <SearchSvg class="ddd"/>
+                <br/>
+                <Test />
             </div>
         );
     }

@@ -1,6 +1,6 @@
 {
   "name": "vuecomponent-svg-loader",
-  "version": "0.0.5",
+  "version": "0.0.7",
   "description": "webpack5 vue3 loader",
   "private": false,
   "author": "xiongshuang <xsmails@163.com>",

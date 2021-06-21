@@ -2,7 +2,7 @@ module.exports = async function (svg) {
     const loaderContext = this;
     const { resourcePath, async } = loaderContext;
     // 根据路径获取文件名字
-    const pathArr = resourcePath.split('\\');
+    const pathArr = resourcePath.includes('\\') ? resourcePath.split('\\') : resourcePath.split('/');
     let name = pathArr.pop();
     if (!name.endsWith('.svg')) name = pathArr.pop();
     const callback = async();
