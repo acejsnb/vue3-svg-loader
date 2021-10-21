@@ -1,10 +1,9 @@
 import './assets/stylus/app.styl';
-import {
-    defineComponent
-} from 'vue';
+import { defineComponent } from 'vue';
 
 // import BiSvg from 'assets/icon/BI.svg';
-import SearchSvg from 'assets/icon/search.svg';
+// import SearchSvg from 'assets/icon/search.svg';
+
 import Test from './pages/Test';
 
 const App = defineComponent({
@@ -15,7 +14,7 @@ const App = defineComponent({
             <div className="app">
                 app
                 {/* <BiSvg/> */}
-                <SearchSvg class="ddd"/>
+                {/*<SearchSvg class="ddd" />*/}
                 <br/>
                 <Test />
             </div>

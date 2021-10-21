@@ -1,10 +1,10 @@
-const {resolve} = require('path');
+const { resolve } = require('path');
 const webpack = require('webpack');
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 const chalk = require('chalk');
-const {VueLoaderPlugin} = require('vue-loader'); // vue加载器
+const { VueLoaderPlugin } = require('vue-loader'); // vue加载器
 
-const {NODE_ENV} = process.env;
+const { NODE_ENV } = process.env;
 
 // 获取时间
 const TimeFn = require('../get_time');
@@ -71,15 +71,11 @@ const config = {
                     {
                         loader: 'vue-loader',
                         options: {
-                            loaders: {
-                                css: cssConfig,
-                                stylus: stylusConfig
-                            },
                             preserveWhitespace: false // 不要留空白
                         }
                     }
-                ],
-                include: [resolve(__dirname, '../src')]
+                ]
+                // include: [resolve(__dirname, '../src')]
             },
             {
                 test: /\.jsx?$/,
@@ -106,8 +102,10 @@ const config = {
             },
             {
                 test: /\.svg$/,
-                use: ['vue-loader', resolve(__dirname, '../src/loader/index.js')],
-                include: [resolve(__dirname, '../src/assets')]
+                use: ({ issuer }) => [
+                    issuer.endsWith('.vue') ? 'vue-loader' : 'babel-loader',
+                    resolve(__dirname, '../src/loader/index.js')
+                ]
             }
         ]
     },
