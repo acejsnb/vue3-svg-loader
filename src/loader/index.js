@@ -12,10 +12,12 @@ module.exports = async function (svg) {
     const regStyle = /<style(([\s\S])*?)<\/style>/ig;
     const regT = / t="(([\s\S])*?)"/ig;
     const regPid = / p-id="(([\s\S])*?)"/ig;
+    const regClass = / class="(([\s\S])*?)"/ig;
     if (svgStr.includes('</defs>')) svgStr = svgStr.replace(regDefs, '');
     if (svgStr.includes('</style>')) svgStr = svgStr.replace(regStyle, '');
     if (svgStr.includes(' t="')) svgStr = svgStr.replace(regT, '');
     if (svgStr.includes(' p-id="')) svgStr = svgStr.replace(regPid, '');
+    if (svgStr.includes(' class="')) svgStr = svgStr.replace(regClass, '');
     if (reg.test(svgStr)) callback(null, `<template><svg class="v-svg-${name.replace('.svg', '')}" ${RegExp.$1}</svg></template>`);
     else callback(null, '<template></template>');
 };
