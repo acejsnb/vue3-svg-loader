@@ -22,7 +22,6 @@ module.exports = async function (svg) {
     if (source.includes(' p-id="')) source = source.replace(regPid, '');
     if (source.includes(' class="')) source = source.replace(regClass, '');
     if (reg.test(source)) svgHtml = `<svg class="v-svg-${name.replace('.svg', '')}" ${RegExp.$1}</svg>`;
-
     // if (context.issuer.endsWith('.jsx') || context.issuer.endsWith('.tsx')) callback(null, `export default () => ${svgHtml}`);
     // else if (context.issuer.endsWith('.vue')) callback(null, `<template>${svgHtml}</template>`);
     // else callback(null, svgHtml);
