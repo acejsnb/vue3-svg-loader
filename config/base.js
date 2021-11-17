@@ -106,8 +106,9 @@ const config = {
             },
             {
                 test: /\.svg$/,
-                use: ['vue-loader', resolve(__dirname, '../src/loader/index.js')],
-                include: [resolve(__dirname, '../src/assets')]
+                // use: ['vue-loader', resolve(__dirname, '../src/loader/index.js')]
+                use: ['babel-loader', resolve(__dirname, '../src/loader/index.js')]
+                // include: [resolve(__dirname, '../src/assets')]
             }
         ]
     },
